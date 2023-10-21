@@ -1,25 +1,15 @@
-import {pausa, message} from './helpers/message.js';
-
+import {menu, pausa} from './components/menu.js'
+//import {pausa} from './helpers/message.js'
 console.clear();
 
 const main = async() => {
-    let opt = '';
+    let res = '';
     do{
-        opt = await message(); // Menu
-
-        //option config
-        if (opt == '1')
-        {
-            console.log('Hola 1');
-        }
-        else
-        {
-            console.log('otros');
-        }
-
-
-        await pausa();// Pausa
-    }while( opt !== '0')
+        
+        res = await menu();
+        console.log(res);
+        await pausa()
+    }while( res !== '0')
     
 }
 main();
