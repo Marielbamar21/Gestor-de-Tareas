@@ -1,5 +1,5 @@
 
-import task from './task.js';
+import { task } from './task.js';
 
 
 let lst = {};

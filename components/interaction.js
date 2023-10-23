@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import {questions} from '../helpers/arrayquestions.js';
-import task from "../models/task.js";
+//import task from "../models/task.js";
 
 export const interartion =    {
         
@@ -26,16 +26,23 @@ export const interartion =    {
                 return option;
         },
 
-        readtask : async(des) => {
+        readtask : async() => {
                 let tsk =[{
                         type: 'input',
                         name: 'task',
-                        message : des,
-                        required : true
+                        message : 'Tarea: ',
+                        validate (value) {
+                                if(value.length === 0)
+                                {
+                                        return 'Ingrese un valor para continuar';
+                                }
+                                return true;
+                        }
+                        
 
 
                 }];
-                const { task } = inquirer.prompt(tsk);
+                const { task } = await inquirer.prompt(tsk);
 
                 return task
         }

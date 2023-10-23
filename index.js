@@ -9,7 +9,8 @@ const main = async() => {
         res = await interartion.menu();
         switch(res){
             case 1 : 
-            let task = await interartion.readtask('Tarea: ');
+            let task = await interartion.readtask();
+            console.log(task);
             takslist.createTask(task);
 
             break;
