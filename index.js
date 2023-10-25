@@ -10,9 +10,24 @@ const main = async() => {
         switch(res){
             case 1 : 
             let task = await interartion.readtask();
-            console.log(task);
             takslist.createTask(task);
+            break;
 
+            case 2 :
+                let tasks = takslist.getlist()
+                if(tasks ===  false)
+                {
+                    console.log('El listado no tiene elementos');
+                }
+                else
+                {
+                    
+                    for(const object in tasks)
+                    {
+                        console.log(tasks[object]);
+                    }
+                    
+                }
             break;
 
         }

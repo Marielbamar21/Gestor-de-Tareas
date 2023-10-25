@@ -27,6 +27,8 @@ export const interartion =    {
         },
 
         readtask : async() => {
+                
+                console.clear(); 
                 let tsk =[{
                         type: 'input',
                         name: 'task',
