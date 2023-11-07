@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import {options, tsks} from '../helpers/selector.js';
+import {options, pendingTasks, alltaks} from '../helpers/selector.js';
 
 export const interartion =    {
         
@@ -46,9 +46,13 @@ export const interartion =    {
                 return task
         },
 
-        selectortasks :async() => {
-                let {task} = await inquirer.prompt(tsks());
-                console.log(task);
+        selectorTasksPending :async() => {
+                let {taskPending} = await inquirer.prompt(pendingTasks());
+                //console.log(task);
+                return taskPending;
+        },
+        selectorAllTasks: async() => {
+                let {task} = await inquirer.prompt(alltaks());
                 return task;
         },
 

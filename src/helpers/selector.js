@@ -39,23 +39,44 @@ export const  options = [
     }
 ];
 
-export const tsks = () =>
+export const pendingTasks = () =>
 {
     let lst = service.getList();
-    console.log(lst,'qlq')
     if(!lst)
     {
         console.log('No hay elementos en la bd');
         return null;
     }
-    let list = lst.filter((item) => !item.completed)
-    console.log(list)
+    let list = lst.filter((item) => !item.completed);
     let descriptions = list.map((item) =>({     value: item.id,
                                                 name: `${item.description} : Pendiente`
                                         }));
     console.log(descriptions);
                                     
     
+    return [{
+                            type: 'list',
+                            name : 'taskPending',
+                            message : ' Seleccone una opcion',
+                            choices: descriptions
+                        }];
+};
+
+export const alltaks = () =>
+{
+    let lst = service.getList();
+    if(!lst)
+    {
+        console.log('No hay elementos en la bd');
+        return null;
+    }
+    let descriptions = lst.map((item) => {return !item.completed? {     value: item.id,
+                                                                        name: `${item.description} : Pendiente`
+                                                                  }:
+                                                                  {     value: item.id,
+                                                                        name: `${item.description} : Completada`
+                                                                  }
+                                        });    
     return [{
                             type: 'list',
                             name : 'task',

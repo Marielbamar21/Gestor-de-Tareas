@@ -19,11 +19,10 @@ const main = async() => {
             case 3: controlertasks.completedTasks();
                 break;
 
-            case 4: 
-                let pending = controlertasks.pendingTasks();
+            case 4: controlertasks.pendingTasks();
                 break;
             case 5 :
-                let tsk = await interartion.selectortasks();
+                let tsk = await interartion.selectorTasksPending();
                 let confirm = await interartion.confirm();
                 if(confirm == true)
                 {
@@ -39,8 +38,8 @@ const main = async() => {
                 }
                 
             break;
-            case 6:  controlertasks.holis()
-                /*let id = await interartion.selectortasks();
+            case 6: 
+                let id = await interartion.selectorAllTasks();
                 let confir = await interartion.confirm();
                 if(confir == true)
                 {
@@ -53,7 +52,7 @@ const main = async() => {
                 else
                 {
                     res = await interartion.menu();
-                }*/
+                }
                 break;
 
 
