@@ -11,7 +11,6 @@ export const interartion =    {
                 console.log('==================================');
         
                 let {option} = await inquirer.prompt(options);
-                console.log(option);
                 return option;
         },
 
@@ -20,7 +19,6 @@ export const interartion =    {
                 type: 'input',
                 name : 'option',
                 message : ' Presione ENTER para continuar'}]);
-                console.log(option);
                 return option;
         },
 
@@ -48,7 +46,6 @@ export const interartion =    {
 
         selectorTasksPending :async() => {
                 let {taskPending} = await inquirer.prompt(pendingTasks());
-                //console.log(task);
                 return taskPending;
         },
         selectorAllTasks: async() => {
@@ -63,7 +60,6 @@ export const interartion =    {
                         message : 'Esta seguro que desea realizar esta operation: '
                 }];
                 let {op} = await inquirer.prompt(operation);
-                console.log(operation);
                 return op;
 
         }

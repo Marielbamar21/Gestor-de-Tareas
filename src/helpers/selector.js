@@ -51,7 +51,6 @@ export const pendingTasks = () =>
     let descriptions = list.map((item) =>({     value: item.id,
                                                 name: `${item.description} : Pendiente`
                                         }));
-    console.log(descriptions);
                                     
     
     return [{
@@ -77,6 +76,8 @@ export const alltaks = () =>
                                                                         name: `${item.description} : Completada`
                                                                   }
                                         });    
+
+                                
     return [{
                             type: 'list',
                             name : 'task',

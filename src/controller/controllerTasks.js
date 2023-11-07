@@ -14,7 +14,7 @@ export const controlertasks = {
         for(let i in lst){
             if(!lst[i].completed)
             {
-                console.log(`${lst[i].description}: Pendiente ${i}`)
+                console.log(`${lst[i].description}: Pendiente`)
             }
             else
             {
@@ -27,17 +27,14 @@ export const controlertasks = {
     
     {
         let lst = data.getList();
-        console.log(lst,'antes del if')
         if(!lst)
         {
-            console.log('if')
             const tas = new task(des);
             data.setList([tas]);
             return tas;
         }
         else 
         {
-            console.log('else')
             const tas = new task(des);
             lst.push(tas);
             data.setList(lst);
@@ -56,7 +53,7 @@ export const controlertasks = {
         else
         {
             let list =lst.filter((item) => item.completed);
-            if(!list || list.length == 0) 
+            if(list.length == 0) 
             {
                 console.log('No hay tareas completadas')
             }

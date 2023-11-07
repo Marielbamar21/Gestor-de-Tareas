@@ -32,11 +32,6 @@ const main = async() => {
                     console.log(con);
 
                 }
-                else
-                {
-                    res = await interartion.menu();
-                }
-                
             break;
             case 6: 
                 let id = await interartion.selectorAllTasks();
