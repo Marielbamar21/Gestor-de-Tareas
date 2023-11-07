@@ -9,7 +9,7 @@ export class task {
         this.id = uuidv4();
         this.description = description;
         this.createdate = new Date();
-        this.finished = false;
+        this.completed = false;
 
     }
 }

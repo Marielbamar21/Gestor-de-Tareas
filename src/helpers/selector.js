@@ -1,4 +1,7 @@
-export const  questions = [
+import service from "../service/service.js";
+
+
+export const  options = [
     {
                             type: 'list',
                             name : 'option',
@@ -13,7 +16,7 @@ export const  questions = [
                                     name:'2. Listar Tareas'
                                 },
                                 {
-                                    value: 2,
+                                    value: 3,
                                     name:'3. Listar tareas completadas'
                                 },
                                 {
@@ -34,4 +37,29 @@ export const  questions = [
                                 }
                             ]
     }
-]
+];
+
+export const tsks = () =>
+{
+    let lst = service.getList();
+    console.log(lst,'qlq')
+    if(!lst)
+    {
+        console.log('No hay elementos en la bd');
+        return null;
+    }
+    let list = lst.filter((item) => !item.completed)
+    console.log(list)
+    let descriptions = list.map((item) =>({     value: item.id,
+                                                name: `${item.description} : Pendiente`
+                                        }));
+    console.log(descriptions);
+                                    
+    
+    return [{
+                            type: 'list',
+                            name : 'task',
+                            message : ' Seleccone una opcion',
+                            choices: descriptions
+                        }];
+                    };

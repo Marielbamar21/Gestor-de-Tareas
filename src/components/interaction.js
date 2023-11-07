@@ -1,6 +1,5 @@
 import inquirer from "inquirer";
-import {questions} from '../helpers/arrayquestions.js';
-//import task from "../models/task.js";
+import {options, tsks} from '../helpers/selector.js';
 
 export const interartion =    {
         
@@ -11,13 +10,12 @@ export const interartion =    {
                 console.log('        Gestion de Tareas         ');
                 console.log('==================================');
         
-                let {option} = await inquirer.prompt(questions);
+                let {option} = await inquirer.prompt(options);
                 console.log(option);
                 return option;
         },
 
         pausa : async() => {
-        
                 let {option} = await inquirer.prompt([{
                 type: 'input',
                 name : 'option',
@@ -28,7 +26,6 @@ export const interartion =    {
 
         readtask : async() => {
                 
-                console.clear(); 
                 let tsk =[{
                         type: 'input',
                         name: 'task',
@@ -47,5 +44,25 @@ export const interartion =    {
                 const { task } = await inquirer.prompt(tsk);
 
                 return task
+        },
+
+        selectortasks :async() => {
+                let {task} = await inquirer.prompt(tsks());
+                console.log(task);
+                return task;
+        },
+
+        confirm: async() => {
+                let operation =[{
+                        type: 'confirm',
+                        name: 'op',
+                        message : 'Esta seguro que desea realizar esta operation: '
+                }];
+                let {op} = await inquirer.prompt(operation);
+                console.log(operation);
+                return op;
+
         }
+
+
 }

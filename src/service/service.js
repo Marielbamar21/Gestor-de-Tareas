@@ -1,23 +1,23 @@
 import fs from 'fs'
 
-export const saveinfo = {
+export default {
     
     setList: (data) => 
     {
-        fs.writeFileSync('./components/db/data.json',JSON.stringify(data));  
+        fs.writeFileSync('./src/db/data.json',JSON.stringify(data));  
 
     },
 
     getList: () =>
     {
-        let validation =fs.existsSync('./components/db/data.json');
+        let validation =fs.existsSync('./src/db/data.json'); 
         if(!validation)
         {
             return false;
         }
         else
         {
-            let lst = fs.readFileSync('./components/db/data.json','utf8');
+            let lst = fs.readFileSync('./src/db/data.json','utf8');
             return JSON.parse(lst);
         }
         
