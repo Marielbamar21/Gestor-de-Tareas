@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /dist
-/src/db/data.json
 
 
 # local env files
